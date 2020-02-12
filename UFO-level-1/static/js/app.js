@@ -17,15 +17,16 @@ ufoData.forEach(function (ufoSighting) {
     console.log(ufoSighting);
 
     var newRow = tbody.append("tr");
-    // Object.entries(ufoSighting).forEach(function([key, value]) {
-    //     console.log(key,value);
-    //     var newCell = newRow.append("td");
-    //     newCell.text(value);
-
-    Object.values(ufoSighting).forEach(function(value) {
-        console.log(value);
+    Object.entries(ufoSighting).forEach(function([key, value]) {
+        console.log(key,value);
         var newCell = newRow.append("td");
         newCell.text(value);
+
+    // Alternative to above code
+    // Object.values(ufoSighting).forEach(function(value) {
+    //     console.log(value);
+    //     var newCell = newRow.append("td");
+    //     newCell.text(value);
     });
 });
 
