@@ -30,66 +30,58 @@ ufoData.forEach(function (ufoSighting) {
     });
 });
 
-// Create a function that will take multiple user inputs and filter table
-// based on those inputs
+// Create a function that will take multiple user inputs (filters) and filter table
+// based on those values
+
+// Initialize empty object to store active filters
+var filters = {};
 
 // Save the filter button to a variable
-var button = d3.select("#filter-btn");
+var searchBy = d3.select(".filter");
 
 // Create a function to filter the data based on inputs when the button
 // is clicked
-button.on("click", function() {
+searchBy.on("change", function() {
+
+    // var changedvalue = d3.select(this).property("value");
+    var filterId = d3.select(this).attr("id");
 
     // Select each input value and save to a variable
+    //Save all inputs to an array to loop through 
+    var inputs = [];
+
     var inputDate = d3.select("#datetime").property("value");
     console.log(inputDate);
-
+    inputs.push(inputDate);
     var inputCity = d3.select("#city").property("value").toLowerCase();
     console.log(inputCity);
-
+    inputs.push(inputCity);
     var inputState = d3.select("#state").property("value").toLowerCase();
     console.log(inputState);
-
+    inputs.push(inputState);
     var inputCountry = d3.select("#country").property("value").toLowerCase();
     console.log(inputCountry);
-
+    inputs.push(inputCountry);
     var inputShape = d3.select("#shape").property("value").toLowerCase();
     console.log(inputShape);
+    inputs.push(inputShape);
+    console.log(inputs);
 
-    // Create an empty array in which to store input values
-    inputValues = [];
+    inputs.forEach((input) => {
+        if (input) {
+            filters[filterId] = input;
+        }
+        else {
+            delete filters[filterId];
+        }
+    });
 
-    // Add nonempty input fields to the inputValues array
-    if (inputDate !== "") {
-        inputValues.push(inputDate);
-    };
+    let filteredData = data;
 
-    if (inputCity !== "") {
-        inputValues.push(inputCity);
-    };
-
-    if (inputState !== "") {
-        inputValues.push(inputState);
-    };
-
-    if (inputCountry !== "") {
-        inputValues.push(inputCountry);
-    };
-
-    if (inputShape !== "") {
-        inputValues.push(inputShape);
-    };
-
-    console.log(inputValues);
-
-    for (i=0; i < inputValues.length; i++) {
-        var filteredData = ufoData.filter(ufoData => ufoData.datetime === inputValues[i] || ufoData.city === inputValues[i] || ufoData.state === inputValues[i] || ufoData.country === inputValues[i] || ufoData.shape === inputValues[i])
-    }
-    console.log(filteredData)
-
-    // // Use the input to filter the data by datetime
-    // var filteredData = ufoData.filter(ufoData => ufoData.datetime === inputDate && ufoData.city === inputCity && ufoData.state === inputState && ufoData.country === inputCountry && ufoData.shape === inputShape);
-    // console.log(filteredData);
+    Object.entries(filters).forEach(([key, value]) => {
+        filteredData = filteredData.filter(row => row[key] === value);
+    });
+    console.log(filteredData);
 
     // Clear table
     tbody.html("");
