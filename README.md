@@ -1,1 +1,1 @@
-# javascript-challenge
+# UFO Sightings
