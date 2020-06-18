@@ -16,3 +16,5 @@ The goal of this project was to use JavaScript, HTML, CSS, and D3.js to create a
 
 For the first step of this project, an [HTML](UFO-level-1/index.html) webpage was created and D3.js was used to create a dynamic table, where each new row of the data was added to the table line by line. Rather than written into the HTML code itself, this code can be found in the [app.js](UFO-level-1/static/js/app.js) file under the [UFO-level-1](UFO-level-1/static/js) folder. The user can pull up the webpage and view the table, and then filter the table based on date/time variable. 
 
+![](UFO-level-1/static/images/html.png)
+
