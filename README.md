@@ -18,3 +18,5 @@ For the first step of this project, an [HTML](UFO-level-1/index.html) webpage wa
 
 ![](UFO-level-1/static/images/html.png)
 
+![](UFO-level-1/static/images/table.png)
+
