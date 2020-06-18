@@ -9,8 +9,8 @@ The goal of this project was to use JavaScript, HTML, CSS, and D3.js to create a
 - JavaScript
 - HTML
 - CSS
+- Bootstrap
+- D3.js
 - 
--
--
 -
 
