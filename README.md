@@ -27,4 +27,5 @@ The second portion of this project is almost exactly the same except the user ca
 - date/time
 - city 
 - state
-
+- country
+- shape
