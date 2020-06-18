@@ -29,3 +29,5 @@ The second portion of this project is almost exactly the same except the user ca
 - state
 - country
 - shape
+
+![](UFO-level-2/static/images/table2.png)
